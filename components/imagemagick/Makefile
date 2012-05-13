@@ -25,16 +25,14 @@
 
 include ../../make-rules/shared-macros.mk
 
-# The archive untars to directory without the '-2' suffix, so
-# COMPONENT_SUBVERSION had to be introduced
-#
 COMPONENT_NAME=			ImageMagick
-COMPONENT_VERSION=		6.3.4
-COMPONENT_SUBVERSION=	2
+COMPONENT_MAJOR_VERSION=	6.7.5
+COMPONENT_MINOR_VERSION=	10
+COMPONENT_VERSION=		$(COMPONENT_MAJOR_VERSION)-$(COMPONENT_MINOR_VERSION)
 COMPONENT_SRC=			$(COMPONENT_NAME)-$(COMPONENT_VERSION)
-COMPONENT_ARCHIVE=		$(COMPONENT_SRC)-$(COMPONENT_SUBVERSION).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:516bb273afb007fb08f15c2747862d819a94d391
-COMPONENT_ARCHIVE_URL=	http://image_magick.veidrodis.com/image_magick/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE=		$(COMPONENT_SRC).tar.gz
+COMPONENT_ARCHIVE_HASH=	sha256:613146aefeeec31a8663b006664af9f9622d901c9698d9c0a49c6036467a0905
+COMPONENT_ARCHIVE_URL=	ftp://ftp.imagemagick.org/pub/ImageMagick/legacy/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
@@ -43,7 +41,8 @@ include ../../make-rules/ips.mk
 # IPS_COMPONENT_VERSION is by default set to $(COMPONENT_VERSION) but in
 # this case we need to replace the '-' by '.'.
 #
-IPS_COMPONENT_VERSION=	$(COMPONENT_VERSION).$(COMPONENT_SUBVERSION)
+IPS_COMPONENT_VERSION=	$(COMPONENT_MAJOR_VERSION).$(COMPONENT_MINOR_VERSION)
+PKG_MACROS += COMPONENT_MAJOR_VERSION=$(COMPONENT_MAJOR_VERSION)
 
 # The archive contains pre-generated magick-config.h header, which is later on
 # being used and the build fails.  However, we want to use the header generated
