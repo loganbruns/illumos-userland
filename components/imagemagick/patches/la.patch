@@ -1,0 +1,29 @@
+--- ImageMagick-6.7.5-10/magick/module.c.orig	Sun Dec 18 17:54:26 2011
++++ ImageMagick-6.7.5-10/magick/module.c	Fri May 18 21:49:35 2012
+@@ -72,7 +72,7 @@
+   Define declarations.
+ */
+ #if defined(MAGICKCORE_LTDL_DELEGATE)
+-#  define ModuleGlobExpression "*.la"
++#  define ModuleGlobExpression "*.so"
+ #else
+ #  if defined(_DEBUG)
+ #    define ModuleGlobExpression "IM_MOD_DB_*.dll"
+@@ -1454,7 +1454,7 @@
+   (void) LogMagickEvent(TraceEvent,GetMagickModule(),"%s",tag);
+   assert(name != (char *) NULL);
+ #if defined(MAGICKCORE_LTDL_DELEGATE)
+-  (void) FormatLocaleString(name,MaxTextExtent,"%s.la",tag);
++  (void) FormatLocaleString(name,MaxTextExtent,"%s.so",tag);
+   (void) LocaleLower(name);
+ #else
+ #if defined(MAGICKCORE_WINDOWS_SUPPORT)
+@@ -1505,7 +1505,7 @@
+ #if !defined(MAGICKCORE_LTDL_DELEGATE)
+   (void) FormatLocaleString(name,MaxTextExtent,"%s.dll",tag);
+ #else
+-  (void) FormatLocaleString(name,MaxTextExtent,"%s.la",tag);
++  (void) FormatLocaleString(name,MaxTextExtent,"%s.so",tag);
+ #endif
+ }
+ 
