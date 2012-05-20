@@ -13,9 +13,9 @@ COMPONENT_NAME=			xmlstarlet
 COMPONENT_VERSION=		1.3.1
 COMPONENT_SRC=			$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=		$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:effe9aba3f8003d1da2b07aa54af4f3b5956bd09f061c499442415278425885b
-COMPONENT_ARCHIVE_URL=	http://downloads.sourceforge.net/project/xmlstar/xmlstarlet/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
-COMPONENT_PROJECT_URL= http://xmlstar.sourceforge.net
+COMPONENT_ARCHIVE_HASH=		sha256:effe9aba3f8003d1da2b07aa54af4f3b5956bd09f061c499442415278425885b
+COMPONENT_ARCHIVE_URL=		http://downloads.sourceforge.net/project/xmlstar/xmlstarlet/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
+COMPONENT_PROJECT_URL=		http://xmlstar.sourceforge.net
 
 include $(WS_TOP)/make-rules/prep.mk
 include $(WS_TOP)/make-rules/configure.mk
