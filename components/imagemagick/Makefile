@@ -26,13 +26,17 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=			ImageMagick
-COMPONENT_MAJOR_VERSION=	6.7.5
+COMPONENT_MAJOR_VERSION=	6.7.6
 COMPONENT_MINOR_VERSION=	10
 COMPONENT_VERSION=		$(COMPONENT_MAJOR_VERSION)-$(COMPONENT_MINOR_VERSION)
 COMPONENT_SRC=			$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=		$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:613146aefeeec31a8663b006664af9f9622d901c9698d9c0a49c6036467a0905
-COMPONENT_ARCHIVE_URL=	ftp://ftp.imagemagick.org/pub/ImageMagick/legacy/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=		sha256:56cf3e3368529b877d89d52f7837da5bd772fffbebe69bfe7a9b80747fef7f23
+
+# Note: we purposely take the latest version from legacy since these
+# are stable (permanent) links whereas the absolute latest version is
+# placed one directory up but only temporarily while it is new.
+COMPONENT_ARCHIVE_URL=		ftp://ftp.imagemagick.org/pub/ImageMagick/legacy/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
