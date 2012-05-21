@@ -23,10 +23,10 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		tcpdump
-COMPONENT_VERSION=	4.1.1
+COMPONENT_VERSION=	4.2.1
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:8f356cbc781192ecb527623d68db90e06aa9d4b9
+COMPONENT_ARCHIVE_HASH=	sha256:5457e9a61e86efe62e88bc621903c2d1ab08dd688e9ac839c7bc2513ee4f9bff
 COMPONENT_ARCHIVE_URL=	http://www.tcpdump.org/release/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -39,14 +39,17 @@ studio_ALIGN.sparc.32=
 CONFIGURE_OPTIONS += CFLAGS="$(CFLAGS)"
 CONFIGURE_OPTIONS += --enable-ipv6=yes
 CONFIGURE_OPTIONS += --with-user=nobody
-CONFIGURE_OPTIONS += --without-crypto
 
 # common targets
 build:          $(BUILD_32)
 
+COMPONENT_POST_BUILD_ACTION= ($(CP) -R $(SOURCE_DIR)/tests $(@D))
+
 install:        $(INSTALL_32) 
 
-test:		$(NO_TESTS)
+COMPONENT_TEST_TARGETS =  check
+
+test:		$(TEST_32)
 
 BUILD_PKG_DEPENDENCIES =        $(BUILD_TOOLS)
 
