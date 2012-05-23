@@ -99,6 +99,7 @@ check_pkg_list()
 		pkg:/archiver/gnu-tar \
 		pkg:/compress/p7zip \
 		pkg:/compress/unzip \
+		pkg:/data/docbook \
 		pkg:/developer/build/ant \
 		pkg:/developer/build/autoconf \
 		pkg:/developer/build/automake-110 \

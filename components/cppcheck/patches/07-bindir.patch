@@ -1,0 +1,13 @@
+--- cppcheck-1.54/Makefile.~2~	Tue May 22 23:42:07 2012
++++ cppcheck-1.54/Makefile	Tue May 22 23:50:56 2012
+@@ -69,7 +69,9 @@
+     INCLUDE_FOR_TEST=-Ilib -Icli -Iexternals -Iexternals/tinyxml
+ endif
+ 
+-BIN=$(DESTDIR)$(PREFIX)/bin
++ifndef BIN
++    BIN=$(DESTDIR)$(PREFIX)/bin
++endif
+ 
+ # For 'make man': sudo apt-get install xsltproc docbook-xsl docbook-xml on Linux
+ DB2MAN=/usr/share/sgml/docbook/xsl-stylesheets/manpages/docbook.xsl
