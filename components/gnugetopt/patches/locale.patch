@@ -1,0 +1,10 @@
+--- getopt-1.1.4/getopt.c.orig	Mon Nov  7 14:17:01 2005
++++ getopt-1.1.4/getopt.c	Sun May 27 22:35:40 2012
+@@ -51,6 +51,7 @@
+ #include "getopt.h"
+ #endif
+ 
++#include <locale.h>
+ #include "nls.h"
+ 
+ /* NON_OPT is the code that is returned when a non-option is found in '+' 
