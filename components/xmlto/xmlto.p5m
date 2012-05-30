@@ -73,3 +73,4 @@ file path=usr/share/xmlto/xmlto.mak
 
 depend type=require fmri=pkg:/library/libxml2
 depend type=require fmri=pkg:/library/libxslt
+depend type=require fmri=pkg:/shell/gnu-getopt
